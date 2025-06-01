@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main() {
+    int andar1, andar2, andar3;
+
+    
+    printf("Informe o numero de pessoas no 1º andar: ");
+    scanf("%d", &andar1);
+
+    printf("Informe o numero de pessoas no 2º andar: ");
+    scanf("%d", &andar2);
+
+    printf("Informe o numero de pessoas no 3º andar: ");
+    scanf("%d", &andar3);
+
+    int tempo1, tempo2, tempo3;
+
+    tempo1 = (0 * andar1 + 1 * andar2 + 2 * andar3) * 2;
+
+    tempo2 = (1 * andar1 + 0 * andar2 + 1 * andar3) * 2;
+
+    tempo3 = (2 * andar1 + 1 * andar2 + 0 * andar3) * 2;
+
+    int menorTempo = tempo1;
+    if (tempo2 < menorTempo) {
+        menorTempo = tempo2;
+    }
+    if (tempo3 < menorTempo) {
+        menorTempo = tempo3;
+    }
+
+    printf("\nTempo total minimo: %d minutos\n", menorTempo);
+
+    return 0;
+}
