@@ -1,0 +1,70 @@
+#include <stdio.h>
+
+int main() {
+    int repetir = 1;
+
+    while (repetir) {
+        int quantidade;
+        float valorUnitario, total = 0, media = 0;
+        int numProdutos = 0;
+
+        printf("\n");
+
+        while (1) {
+            printf("Informe a quantidade de um produto: ");
+            scanf("%d", &quantidade);
+
+            if (quantidade <= 0) {
+                break; 
+            }
+
+            printf("Informe o valor unitario do produto: ");
+            scanf("%f", &valorUnitario);
+
+            while (valorUnitario <= 0) {
+                printf("Valor invalido. Digite novamente: ");
+                scanf("%f", &valorUnitario);
+            }
+
+            total += quantidade * valorUnitario;
+            numProdutos += quantidade;
+        }
+
+        if (numProdutos == 0) {
+            printf("Nenhum produto valido informado.\n");
+        } else {
+            media = total / numProdutos;
+            printf("VALOR TOTAL DA COMPRA: R$ %.2f\n", total);
+            printf("VALOR MEDIO DA COMPRA: R$ %.2f\n", media);
+
+            int reais = (int)total;
+            int centavos = (int)((total - reais) * 100 + 0.5);
+
+            printf("\nO valor total da compra eh %d reais e %d centavos.\n", reais, centavos);
+
+            printf("\n%d reais equivale a:\n", reais);
+            int cedulas[] = {100, 50, 20, 10, 5, 2, 1};
+            for (int i = 0; i < 7; i++) {
+                int qtd = reais / cedulas[i];
+                if (qtd > 0) {
+                    printf("%d nota(s) de %d\n", qtd, cedulas[i]);
+                }
+                reais %= cedulas[i];
+            }
+
+            if (centavos > 0) {
+                printf("%d moeda(s) de 1\n", centavos / 1);
+            }
+        }
+
+        char resposta;
+        printf("\nDeseja repetir o programa (S ou N)? ");
+        scanf(" %c", &resposta);  
+
+        if (resposta != 's' && resposta != 'S') {
+            repetir = 0;
+        }
+    }
+
+    return 0;
+}
