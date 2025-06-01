@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+    int A1, A2, A3;
+
+    printf("Digite o numero de pessoas no 1º andar: ");
+    scanf("%d", &A1);
+
+    printf("Digite o numero de pessoas no 2º andar: ");
+    scanf("%d", &A2);
+
+    printf("Digite o numero de pessoas no 3º andar: ");
+    scanf("%d", &A3);
+
+    int tempo_no_1 = (0 * A1 + 1 * A2 + 2 * A3) * 2;
+    int tempo_no_2 = (1 * A1 + 0 * A2 + 1 * A3) * 2;
+    int tempo_no_3 = (2 * A1 + 1 * A2 + 0 * A3) * 2;
+
+    int tempo_minimo = tempo_no_1;
+    if (tempo_no_2 < tempo_minimo) {
+        tempo_minimo = tempo_no_2;
+    }
+    if (tempo_no_3 < tempo_minimo) {
+        tempo_minimo = tempo_no_3;
+    }
+
+    printf("\nTempo total minimo: %d minutos\n", tempo_minimo);
+
+    return 0;
+}
