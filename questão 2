@@ -3,7 +3,6 @@
 int main() {
     int andar1, andar2, andar3;
 
-    
     printf("Informe o numero de pessoas no 1º andar: ");
     scanf("%d", &andar1);
 
