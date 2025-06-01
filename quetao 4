@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+int inverterNumero(int num) {
+    int centena = num / 100;
+    int dezena = (num / 10) % 10;
+    int unidade = num % 10;
+    return unidade * 100 + dezena * 10 + centena;
+}
+
+int main() {
+    int numero, conta, digitoInformado;
+    
+    do {
+        printf("Digite o numero da conta (4 digitos): ");
+        scanf("%d", &numero);
+    } while (numero < 1000 || numero > 9999);
+
+    conta = numero / 10;
+    digitoInformado = numero % 10;
+
+    int contaInvertida = inverterNumero(conta);
+
+    int soma = conta + contaInvertida;
+
+    int d1 = soma % 10;
+    int d2 = (soma / 10) % 10;
+    int d3 = (soma / 100) % 10;
+    int d4 = (soma / 1000) % 10;
+
+    int somaPeso = d1 * 1 + d2 * 2 + d3 * 3 + d4 * 4;
+    int digitoCalculado = somaPeso % 10;
+
+    printf("Conta: %d\n", conta);
+    printf("Digito informado: %d\n", digitoInformado);
+    printf("Digito verificador calculado: %d\n", digitoCalculado);
+
+    if (digitoCalculado == digitoInformado) {
+        printf("Numero da conta CORRETO!\n");
+    } else {
+        printf("Numero da conta INCORRETO!\n");
+    }
+
+    return 0;
+}
